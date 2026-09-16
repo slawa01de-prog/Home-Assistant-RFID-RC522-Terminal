@@ -1,6 +1,8 @@
 # Installation – English
 
-![Installation flow](../images/installation-flow.svg)
+## Overview
+
+![Installation Flow](../images/installation-flow.svg)
 
 ## Requirements
 
@@ -11,18 +13,20 @@
 - optional **card-mod**
 - ESP32-C3
 - RC522
-- passive buzzer
-- optional LED + 220–330 Ω resistor
+- passive piezo buzzer
+- optional LED + resistor
 
 ## 1. Wire the hardware
 
-Connect the RC522, buzzer and LED according to the wiring diagram:
+Wire the ESP32-C3, RC522, buzzer and LED according to [WIRING.md](WIRING.md).
 
-![Wiring diagram](../images/wiring-diagram.svg)
+Important:
 
-The full pin table is also available in [WIRING.md](WIRING.md).
+- power the RC522 from **3.3 V only**
+- connect the LED anode to **GPIO2 via 220 Ω**
+- connect the buzzer to **GPIO8** and **GND**
 
-## 2. ESPHome
+## 2. ESPHome configuration
 
 Copy `esphome/rfid-rc522.yaml` into ESPHome and add the values from `secrets.example.yaml` to your private ESPHome `secrets.yaml`.
 
@@ -56,10 +60,8 @@ Create three dashboard sections and paste the YAML from:
 - `home-assistant/02-testconsole.yaml`
 - `home-assistant/03-control.yaml`
 
-Example dashboard:
-
-![RFID Dashboard](../images/dashboard-hero.svg)
-
 ## 8. Test RFID
 
 Present a tag to the RC522. The UID should appear in ESPHome logs and Home Assistant should receive a tag event.
+
+You can then use the tag in **Settings → Tags** for Home Assistant automations.
