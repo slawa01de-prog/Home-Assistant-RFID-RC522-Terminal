@@ -1,0 +1,119 @@
+# Replace entity IDs when your Home Assistant installation generated different names.
+type: grid
+title: RFID Steuerung
+columns: 2
+square: false
+cards:
+  - type: custom:button-card
+    entity: binary_sensor.rfid_rc522_status
+    name: Verbindung
+    icon: mdi:access-point-network
+    show_state: true
+    tap_action:
+      action: more-info
+    styles:
+      card:
+        - height: 92px
+        - border-radius: 18px
+        - padding: 14px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+      icon:
+        - color: |
+            [[[
+              if (entity && entity.state === "on") return "#00c853";
+              return "#ff1744";
+            ]]]
+      name:
+        - font-weight: 800
+        - font-size: 15px
+      state:
+        - font-size: 22px
+        - font-weight: 900
+
+  - type: custom:button-card
+    entity: update.rfid_rc522_firmware
+    name: Firmware
+    icon: mdi:update
+    show_state: true
+    tap_action:
+      action: more-info
+    styles:
+      card:
+        - height: 92px
+        - border-radius: 18px
+        - padding: 14px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+      icon:
+        - color: "#607d8b"
+      name:
+        - font-weight: 800
+        - font-size: 15px
+      state:
+        - font-size: 22px
+        - font-weight: 900
+
+  - type: custom:button-card
+    entity: switch.rfid_rc522_buzzer_ein
+    name: Buzzer
+    icon: mdi:volume-high
+    show_state: true
+    tap_action:
+      action: toggle
+    styles:
+      card:
+        - height: 92px
+        - border-radius: 18px
+        - padding: 14px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+        - background: |
+            [[[
+              if (entity && entity.state === "on") {
+                return "linear-gradient(135deg, rgba(0,120,255,0.18), rgba(0,0,0,0.02))";
+              }
+              return "";
+            ]]]
+      icon:
+        - color: |
+            [[[
+              if (entity && entity.state === "on") return "#2196f3";
+              return "#9e9e9e";
+            ]]]
+      name:
+        - font-weight: 800
+        - font-size: 15px
+      state:
+        - font-size: 22px
+        - font-weight: 900
+
+  - type: custom:button-card
+    entity: switch.rfid_rc522_led_ein
+    name: LED
+    icon: mdi:led-on
+    show_state: true
+    tap_action:
+      action: toggle
+    styles:
+      card:
+        - height: 92px
+        - border-radius: 18px
+        - padding: 14px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+        - background: |
+            [[[
+              if (entity && entity.state === "on") {
+                return "linear-gradient(135deg, rgba(255,193,7,0.22), rgba(0,0,0,0.02))";
+              }
+              return "";
+            ]]]
+      icon:
+        - color: |
+            [[[
+              if (entity && entity.state === "on") return "#ffc107";
+              return "#9e9e9e";
+            ]]]
+      name:
+        - font-weight: 800
+        - font-size: 15px
+      state:
+        - font-size: 22px
+        - font-weight: 900
