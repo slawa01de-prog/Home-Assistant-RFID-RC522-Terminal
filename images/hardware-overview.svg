@@ -1,43 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fbff"/><stop offset="1" stop-color="#e9f3fb"/></linearGradient><style>.t{font-family:Arial,Helvetica,sans-serif}.h{font-size:50px;font-weight:800}.m{font-size:27px;font-weight:700}.s{font-size:20px}.card{fill:#fff;stroke:#c8d8e5;stroke-width:2}</style></defs>
-  <rect width="1600" height="1000" fill="url(#g)"/>
-  <text x="800" y="80" text-anchor="middle" class="t h" fill="#102c43">Benötigte Hardware</text>
-  <text x="800" y="125" text-anchor="middle" class="t m" fill="#597387">Home Assistant RFID RC522 Terminal</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 18px Arial, sans-serif; fill: #475569; }
+      .h2 { font: 700 20px Arial, sans-serif; fill: #0f172a; }
+      .body { font: 15px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 13px Arial, sans-serif; fill: #475569; }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="white"/>
+  <text x="50" y="60" class="title">Benötigte Hardware – Home Assistant RFID RC522 Terminal</text>
+  <text x="50" y="95" class="subtitle">Übersicht der Komponenten für den Nachbau</text>
 
-  <!-- cards -->
-  <g>
-    <rect x="85" y="180" width="330" height="330" rx="25" class="card"/><rect x="450" y="180" width="330" height="330" rx="25" class="card"/><rect x="815" y="180" width="330" height="330" rx="25" class="card"/><rect x="1180" y="180" width="330" height="330" rx="25" class="card"/>
-    <rect x="170" y="560" width="360" height="280" rx="25" class="card"/><rect x="620" y="560" width="360" height="280" rx="25" class="card"/><rect x="1070" y="560" width="360" height="280" rx="25" class="card"/>
-  </g>
+  <rect x="50" y="140" width="720" height="150" rx="18" fill="#e0f2fe" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="115" cy="215" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="90" y="195" width="50" height="40" rx="6" fill="#94a3b8" stroke="#64748b"/>
+  <rect x="98" y="203" width="34" height="24" fill="#e2e8f0"/>
+  <text x="175" y="185" class="h2">ESP32-C3 DevKitM-1</text>
+  <text x="175" y="218" class="body">Zentrale Steuereinheit für ESPHome, WLAN und Logik.</text>
+  <text x="175" y="246" class="small">Verbindet RC522, Buzzer und LED mit Home Assistant.</text>
 
-  <!-- ESP32 -->
-  <rect x="175" y="225" width="150" height="180" rx="18" fill="#242a31"/><rect x="204" y="250" width="92" height="88" rx="10" fill="#cbd1d5"/><text x="250" y="282" text-anchor="middle" class="t s" fill="#333">ESP32-C3</text><text x="250" y="309" text-anchor="middle" class="t s" fill="#333">DevKitM-1</text><rect x="220" y="380" width="60" height="22" rx="5" fill="#9aa7b1"/>
-  <text x="250" y="450" text-anchor="middle" class="t m" fill="#102c43">ESP32-C3 DevKitM-1</text><text x="250" y="482" text-anchor="middle" class="t s" fill="#5b7183">Wi-Fi Mikrocontroller</text>
+  <rect x="830" y="140" width="720" height="150" rx="18" fill="#dbeafe" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="895" cy="215" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="867" y="188" width="56" height="54" rx="8" fill="#2563eb" stroke="#1d4ed8"/>
+  <path d="M885 205 a16 16 0 0 0 0 30" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M905 205 a16 16 0 0 1 0 30" fill="none" stroke="white" stroke-width="2"/>
+  <text x="955" y="185" class="h2">RC522 RFID Modul</text>
+  <text x="955" y="218" class="body">Liest RFID-Karten, Tags oder Schlüsselanhänger.</text>
+  <text x="955" y="246" class="small">Wird per SPI an den ESP32-C3 angeschlossen.</text>
 
-  <!-- RC522 -->
-  <rect x="540" y="225" width="150" height="180" rx="12" fill="#0b6da9"/><g fill="none" stroke="#dff5ff" stroke-width="5"><path d="M565 310 q50-65 100 0 q-50 65-100 0"/><path d="M580 310 q35-45 70 0 q-35 45-70 0"/><path d="M596 310 q20-25 40 0 q-20 25-40 0"/></g><text x="615" y="382" text-anchor="middle" class="t s" fill="#fff">RFID-RC522</text>
-  <text x="615" y="450" text-anchor="middle" class="t m" fill="#102c43">RC522 RFID Modul</text><text x="615" y="482" text-anchor="middle" class="t s" fill="#5b7183">13,56 MHz Reader</text>
+  <rect x="50" y="310" width="720" height="150" rx="18" fill="#ecfccb" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="115" cy="385" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="115" cy="385" r="24" fill="#111827"/><circle cx="115" cy="385" r="4" fill="white"/>
+  <text x="175" y="355" class="h2">Passiver Piezo-Buzzer</text>
+  <text x="175" y="388" class="body">Gibt OK-, Fehler- und Alarmtöne über RTTTL aus.</text>
+  <text x="175" y="416" class="small">Wichtig: passiv, nicht aktiv.</text>
 
-  <!-- Buzzer -->
-  <circle cx="980" cy="310" r="70" fill="#15191d"/><circle cx="980" cy="292" r="16" fill="#333"/><line x1="950" y1="378" x2="950" y2="410" stroke="#666" stroke-width="7"/><line x1="1010" y1="378" x2="1010" y2="410" stroke="#666" stroke-width="7"/>
-  <text x="980" y="450" text-anchor="middle" class="t m" fill="#102c43">Passiver Buzzer</text><text x="980" y="482" text-anchor="middle" class="t s" fill="#5b7183">RTTTL / akustische Rückmeldung</text>
+  <rect x="830" y="310" width="720" height="150" rx="18" fill="#fae8ff" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="895" cy="385" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="890" cy="380" r="16" fill="#ef4444"/>
+  <line x1="890" y1="396" x2="890" y2="422" stroke="#111827" stroke-width="3"/>
+  <line x1="900" y1="396" x2="900" y2="422" stroke="#111827" stroke-width="2"/>
+  <polyline points="864,412 873,404 882,420 891,404 900,420 909,412" fill="none" stroke="#a16207" stroke-width="3"/>
+  <text x="955" y="355" class="h2">LED + 220 Ω Widerstand</text>
+  <text x="955" y="388" class="body">Optionale Statusanzeige für Scan / Feedback.</text>
+  <text x="955" y="416" class="small">Anode an GPIO2 über Vorwiderstand, Kathode an GND.</text>
 
-  <!-- LED -->
-  <circle cx="1290" cy="295" r="48" fill="#ef4444" stroke="#b91c1c" stroke-width="4"/><line x1="1275" y1="340" x2="1275" y2="400" stroke="#777" stroke-width="5"/><line x1="1305" y1="340" x2="1305" y2="400" stroke="#777" stroke-width="5"/><rect x="1360" y="275" width="90" height="30" rx="10" fill="#d9b176" stroke="#8b6635" stroke-width="3"/><g stroke="#4b3520" stroke-width="5"><line x1="1380" y1="277" x2="1380" y2="303"/><line x1="1400" y1="277" x2="1400" y2="303"/><line x1="1420" y1="277" x2="1420" y2="303"/></g>
-  <text x="1345" y="450" text-anchor="middle" class="t m" fill="#102c43">LED + Widerstand</text><text x="1345" y="482" text-anchor="middle" class="t s" fill="#5b7183">220–330 Ω empfohlen</text>
+  <rect x="50" y="480" width="720" height="150" rx="18" fill="#fff7ed" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="115" cy="555" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="100" y1="530" x2="100" y2="580" stroke="#475569" stroke-width="3"/>
+  <line x1="110" y1="530" x2="110" y2="580" stroke="#475569" stroke-width="3"/>
+  <line x1="120" y1="530" x2="120" y2="580" stroke="#475569" stroke-width="3"/>
+  <line x1="130" y1="530" x2="130" y2="580" stroke="#475569" stroke-width="3"/>
+  <text x="175" y="525" class="h2">Jumper-Kabel</text>
+  <text x="175" y="558" class="body">Für die Verdrahtung aller Module.</text>
+  <text x="175" y="586" class="small">Dupont Female–Female bzw. passend zum Board.</text>
 
-  <!-- jumper -->
-  <g stroke-width="8" fill="none"><path d="M220 650 C280 600 360 730 450 650" stroke="#e53935"/><path d="M220 675 C290 625 365 755 450 675" stroke="#f9a825"/><path d="M220 700 C300 650 370 780 450 700" stroke="#1e88e5"/><path d="M220 725 C310 675 375 805 450 725" stroke="#43a047"/></g><g fill="#222"><rect x="195" y="638" width="42" height="110" rx="6"/><rect x="438" y="638" width="42" height="110" rx="6"/></g>
-  <text x="350" y="790" text-anchor="middle" class="t m" fill="#102c43">Jumper-Kabel</text><text x="350" y="820" text-anchor="middle" class="t s" fill="#5b7183">für SPI und Versorgung</text>
+  <rect x="830" y="480" width="720" height="150" rx="18" fill="#fef3c7" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="895" cy="555" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="872" y="532" width="46" height="46" rx="6" fill="white" stroke="#94a3b8"/>
+  <circle cx="918" cy="578" r="8" fill="none" stroke="#64748b" stroke-width="3"/>
+  <text x="955" y="525" class="h2">RFID Tag / Karte</text>
+  <text x="955" y="558" class="body">Zum Testen und späteren Betrieb.</text>
+  <text x="955" y="586" class="small">Kann in Home Assistant als Tag-Ereignis genutzt werden.</text>
 
-  <!-- USB -->
-  <path d="M690 690 C740 620 860 620 910 690 C860 760 740 760 690 690" fill="none" stroke="#252a2f" stroke-width="18"/><rect x="650" y="667" width="70" height="45" rx="7" fill="#737f87"/><rect x="900" y="674" width="58" height="32" rx="10" fill="#737f87"/>
-  <text x="800" y="790" text-anchor="middle" class="t m" fill="#102c43">USB-Kabel</text><text x="800" y="820" text-anchor="middle" class="t s" fill="#5b7183">Flashen und Stromversorgung</text>
+  <rect x="50" y="650" width="720" height="150" rx="18" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="115" cy="725" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="94" y="698" width="42" height="54" rx="6" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="175" y="695" class="h2">USB-Kabel + 5 V Versorgung</text>
+  <text x="175" y="728" class="body">Für Flashen und Stromversorgung des ESP32-C3.</text>
+  <text x="175" y="756" class="small">Je nach Board meistens USB-C.</text>
 
-  <!-- tags -->
-  <circle cx="1165" cy="680" r="58" fill="#1976d2"/><circle cx="1165" cy="680" r="23" fill="none" stroke="#d7ecff" stroke-width="5"/><rect x="1215" y="625" width="150" height="95" rx="12" fill="#fff" stroke="#b6c7d5" stroke-width="3"/><text x="1290" y="682" text-anchor="middle" class="t m" fill="#8796a2">RFID</text>
-  <text x="1250" y="790" text-anchor="middle" class="t m" fill="#102c43">RFID Tag / Karte</text><text x="1250" y="820" text-anchor="middle" class="t s" fill="#5b7183">zum Testen und täglichen Gebrauch</text>
+  <rect x="830" y="650" width="720" height="150" rx="18" fill="#dcfce7" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="895" cy="725" r="40" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="880" cy="725" r="10" fill="#2563eb"/><circle cx="910" cy="725" r="10" fill="#16a34a"/><circle cx="895" cy="705" r="10" fill="#f59e0b"/>
+  <text x="955" y="695" class="h2">Home Assistant + ESPHome + HACS</text>
+  <text x="955" y="728" class="body">Software-Seite des Projekts.</text>
+  <text x="955" y="756" class="small">ESPHome, Button Card, optional card-mod.</text>
 
-  <rect x="110" y="885" width="1380" height="75" rx="22" fill="#dcedf8"/>
-  <text x="250" y="932" class="t m" fill="#102c43">✓ ESPHome</text><text x="565" y="932" class="t m" fill="#102c43">✓ Home Assistant</text><text x="945" y="932" class="t m" fill="#102c43">✓ Tablet Dashboard</text><text x="1260" y="932" class="t m" fill="#102c43">✓ Buzzer &amp; LED</text>
+  <rect x="50" y="830" width="1500" height="40" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="70" y="856" class="body">Empfehlung: zuerst Hardware aufbauen, danach ESPHome flashen und zuletzt das Dashboard in Home Assistant einfügen.</text>
 </svg>
