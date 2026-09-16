@@ -1,73 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
-  <defs>
-    <style>
-      .title { font: 700 34px Arial, sans-serif; fill: #0f172a; }
-      .subtitle { font: 600 18px Arial, sans-serif; fill: #475569; }
-      .h2 { font: 700 20px Arial, sans-serif; fill: #0f172a; }
-      .body { font: 15px Arial, sans-serif; fill: #0f172a; }
-      .small { font: 13px Arial, sans-serif; fill: #475569; }
-    </style>
-    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
-      <polygon points="0,0 10,4 0,8" fill="#0f172a"/>
-    </marker>
-  </defs>
-  <rect width="1600" height="700" fill="white"/>
-  <text x="50" y="60" class="title">Installation – Schritt für Schritt</text>
-  <text x="50" y="95" class="subtitle">Von der Verdrahtung bis zum fertigen Home-Assistant-Dashboard</text>
-
-  <rect x="50" y="180" width="330" height="360" rx="22" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-  <circle cx="120" cy="250" r="42" fill="#dbeafe" stroke="#cbd5e1"/>
-  <path d="M105 268 L135 232" stroke="#2563eb" stroke-width="5"/>
-  <path d="M102 235 L138 265" stroke="#16a34a" stroke-width="5"/>
-  <text x="180" y="256" class="h2">1. Verdrahten</text>
-  <text x="75" y="330" class="body">ESP32-C3, RC522, Buzzer und LED laut</text>
-  <text x="75" y="354" class="body">Verdrahtungsplan verbinden.</text>
-  <text x="75" y="385" class="small">RC522 nur mit 3.3 V betreiben.</text>
-  <circle cx="84" cy="426" r="4" fill="#2563eb"/><text x="98" y="430" class="small">RC522 an SPI anschließen</text>
-  <circle cx="84" cy="454" r="4" fill="#2563eb"/><text x="98" y="458" class="small">GPIO8 für Buzzer</text>
-  <circle cx="84" cy="482" r="4" fill="#2563eb"/><text x="98" y="486" class="small">GPIO2 für LED über 220 Ω</text>
-  <circle cx="84" cy="510" r="4" fill="#2563eb"/><text x="98" y="514" class="small">GND gemeinsam führen</text>
-  <line x1="390" y1="360" x2="420" y2="360" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <rect x="430" y="180" width="330" height="360" rx="22" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-  <circle cx="500" cy="250" r="42" fill="#dcfce7" stroke="#cbd5e1"/>
-  <rect x="485" y="222" width="30" height="56" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
-  <rect x="491" y="230" width="18" height="30" fill="#94a3b8"/>
-  <text x="560" y="256" class="h2">2. ESPHome flashen</text>
-  <text x="455" y="330" class="body">YAML übernehmen, Secrets eintragen und</text>
-  <text x="455" y="354" class="body">auf den ESP32-C3 flashen.</text>
-  <text x="455" y="385" class="small">Danach Gerät in Home Assistant einbinden.</text>
-  <circle cx="464" cy="426" r="4" fill="#2563eb"/><text x="478" y="430" class="small">secrets.yaml pflegen</text>
-  <circle cx="464" cy="454" r="4" fill="#2563eb"/><text x="478" y="458" class="small">USB oder OTA flashen</text>
-  <circle cx="464" cy="482" r="4" fill="#2563eb"/><text x="478" y="486" class="small">HA-Aktionen erlauben</text>
-  <circle cx="464" cy="510" r="4" fill="#2563eb"/><text x="478" y="514" class="small">Logs auf Fehler prüfen</text>
-  <line x1="770" y1="360" x2="800" y2="360" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <rect x="810" y="180" width="330" height="360" rx="22" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-  <circle cx="880" cy="250" r="42" fill="#fae8ff" stroke="#cbd5e1"/>
-  <rect x="858" y="228" width="44" height="34" rx="6" fill="#2563eb"/><rect x="864" y="236" width="32" height="18" fill="white"/>
-  <text x="940" y="256" class="h2">3. HACS + Dashboard</text>
-  <text x="835" y="330" class="body">Button Card installieren und die drei</text>
-  <text x="835" y="354" class="body">YAML-Karten in drei Abschnitte einfügen.</text>
-  <text x="835" y="385" class="small">Entity-IDs bei Bedarf anpassen.</text>
-  <circle cx="844" cy="426" r="4" fill="#2563eb"/><text x="858" y="430" class="small">HACS installieren</text>
-  <circle cx="844" cy="454" r="4" fill="#2563eb"/><text x="858" y="458" class="small">Button Card installieren</text>
-  <circle cx="844" cy="482" r="4" fill="#2563eb"/><text x="858" y="486" class="small">3 manuelle YAML-Karten anlegen</text>
-  <circle cx="844" cy="510" r="4" fill="#2563eb"/><text x="858" y="514" class="small">Frontend neu laden</text>
-  <line x1="1150" y1="360" x2="1180" y2="360" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <rect x="1190" y="180" width="330" height="360" rx="22" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-  <circle cx="1260" cy="250" r="42" fill="#fef3c7" stroke="#cbd5e1"/>
-  <rect x="1238" y="230" width="44" height="32" rx="5" fill="white" stroke="#94a3b8"/>
-  <text x="1320" y="256" class="h2">4. RFID testen</text>
-  <text x="1215" y="330" class="body">Tag scannen, Logs prüfen und unter „Tags“</text>
-  <text x="1215" y="354" class="body">in Home Assistant Automationen anlegen.</text>
-  <text x="1215" y="385" class="small">Optional Buzzer und LED testen.</text>
-  <circle cx="1224" cy="426" r="4" fill="#2563eb"/><text x="1238" y="430" class="small">RFID UID im Log prüfen</text>
-  <circle cx="1224" cy="454" r="4" fill="#2563eb"/><text x="1238" y="458" class="small">Tag-Ereignis in HA empfangen</text>
-  <circle cx="1224" cy="482" r="4" fill="#2563eb"/><text x="1238" y="486" class="small">Buzzer-Töne testen</text>
-  <circle cx="1224" cy="510" r="4" fill="#2563eb"/><text x="1238" y="514" class="small">Automationen unter „Tags“ anlegen</text>
-
-  <rect x="50" y="590" width="1500" height="60" rx="16" fill="#eff6ff" stroke="#bfdbfe"/>
-  <text x="70" y="625" class="body">Tipp: Erst wenn der ESP online ist, die finalen Dashboard-Entitys und erweiterten Sensoren (letzter Tag, Scan-Zähler, Zugriff-Status) einbinden.</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="980" viewBox="0 0 1800 980">
+<defs>
+<style>
+.title { font: 700 40px Arial, sans-serif; fill: #0f172a; }
+.subtitle { font: 600 19px Arial, sans-serif; fill: #475569; }
+.h2 { font: 700 24px Arial, sans-serif; fill: #0f172a; }
+.body { font: 16px Arial, sans-serif; fill: #0f172a; }
+.small { font: 14px Arial, sans-serif; fill: #475569; }
+.label { font: 700 16px Arial, sans-serif; fill: #0f172a; }
+</style>
+<marker id="arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+<polygon points="0,0 12,5 0,10" fill="#0f172a"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="50" y="65" class="title">Installation – Schritt für Schritt</text><text x="50" y="100" class="subtitle">Von der Verdrahtung bis zum funktionierenden RFID-Dashboard in Home Assistant</text><rect x="50" y="165" width="390" height="560" rx="24" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="50" y="165" width="390" height="98" rx="24" fill="#dbeafe" stroke="#cbd5e1" stroke-width="2"/><circle cx="120" cy="214" r="34" fill="white" stroke="#cbd5e1" stroke-width="2"/><path d="M 104 231 L 137 197" stroke="#2563eb" stroke-width="5"/><path d="M 103 198 L 138 232" stroke="#16a34a" stroke-width="5"/><text x="170" y="223" class="h2">1. Hardware verdrahten</text><text x="80" y="305" class="label">Was zu tun ist</text><circle cx="85" cy="340" r="4" fill="#2563eb"/><text x="98" y="345" class="body">ESP32-C3, RC522, Buzzer und LED laut Plan verbinden.</text><circle cx="85" cy="386" r="4" fill="#2563eb"/><text x="98" y="391" class="body">RC522 nur mit 3.3 V betreiben.</text><circle cx="85" cy="432" r="4" fill="#2563eb"/><text x="98" y="437" class="body">LED-Anode über 220 Ω an GPIO2, Kathode an GND.</text><circle cx="85" cy="478" r="4" fill="#2563eb"/><text x="98" y="483" class="body">Buzzer an GPIO8 und GND anschließen.</text><rect x="74" y="595" width="342" height="100" rx="16" fill="#f8fafc" stroke="#cbd5e1"/><text x="92" y="627" class="label">Hinweis</text><text x="92" y="660" class="small">Tipp: zuerst nur Grundaufbau testen.</text><line x1="448" y1="445" x2="472" y2="445" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow)"/><rect x="480" y="165" width="390" height="560" rx="24" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="480" y="165" width="390" height="98" rx="24" fill="#dcfce7" stroke="#cbd5e1" stroke-width="2"/><circle cx="550" cy="214" r="34" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="532" y="188" width="36" height="52" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/><rect x="539" y="196" width="22" height="29" rx="4" fill="#94a3b8"/><circle cx="550" cy="231" r="3" fill="#64748b"/><text x="600" y="223" class="h2">2. ESPHome konfigurieren + flashen</text><text x="510" y="305" class="label">Was zu tun ist</text><circle cx="515" cy="340" r="4" fill="#16a34a"/><text x="528" y="345" class="body">`rfid-rc522.yaml` in ESPHome übernehmen.</text><circle cx="515" cy="386" r="4" fill="#16a34a"/><text x="528" y="391" class="body">Private Werte in `secrets.yaml` eintragen.</text><circle cx="515" cy="432" r="4" fill="#16a34a"/><text x="528" y="437" class="body">Konfiguration validieren und auf den ESP flashen.</text><circle cx="515" cy="478" r="4" fill="#16a34a"/><text x="528" y="483" class="body">Danach Gerät in Home Assistant hinzufügen.</text><rect x="504" y="595" width="342" height="100" rx="16" fill="#f8fafc" stroke="#cbd5e1"/><text x="522" y="627" class="label">Hinweis</text><text x="522" y="660" class="small">Tipp: Logs in ESPHome offen lassen.</text><line x1="878" y1="445" x2="902" y2="445" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow)"/><rect x="910" y="165" width="390" height="560" rx="24" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="910" y="165" width="390" height="98" rx="24" fill="#fae8ff" stroke="#cbd5e1" stroke-width="2"/><circle cx="980" cy="214" r="34" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="958" y="197" width="44" height="30" rx="6" fill="#2563eb"/><rect x="966" y="204" width="28" height="16" rx="3" fill="white"/><circle cx="980" cy="238" r="5" fill="#9333ea"/><text x="1030" y="223" class="h2">3. HACS + Dashboard einrichten</text><text x="940" y="305" class="label">Was zu tun ist</text><circle cx="945" cy="340" r="4" fill="#7c3aed"/><text x="958" y="345" class="body">HACS Frontend-Komponente „Button Card“ installieren.</text><circle cx="945" cy="386" r="4" fill="#7c3aed"/><text x="958" y="391" class="body">Optional zusätzlich `card-mod` installieren.</text><circle cx="945" cy="432" r="4" fill="#7c3aed"/><text x="958" y="437" class="body">Drei Dashboard-Abschnitte erstellen.</text><circle cx="945" cy="478" r="4" fill="#7c3aed"/><text x="958" y="483" class="body">YAML aus 01-terminal / 02-testconsole / 03-control einfügen.</text><rect x="934" y="595" width="342" height="100" rx="16" fill="#f8fafc" stroke="#cbd5e1"/><text x="952" y="627" class="label">Hinweis</text><text x="952" y="660" class="small">Tipp: Browser/App nach HACS neu laden.</text><line x1="1308" y1="445" x2="1332" y2="445" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow)"/><rect x="1340" y="165" width="390" height="560" rx="24" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="1340" y="165" width="390" height="98" rx="24" fill="#fef3c7" stroke="#cbd5e1" stroke-width="2"/><circle cx="1410" cy="214" r="34" fill="white" stroke="#cbd5e1" stroke-width="2"/><rect x="1390" y="197" width="40" height="28" rx="4" fill="white" stroke="#94a3b8" stroke-width="2"/><circle cx="1427" cy="225" r="9" fill="none" stroke="#64748b" stroke-width="3"/><text x="1460" y="223" class="h2">4. RFID testen + Automationen nutzen</text><text x="1370" y="305" class="label">Was zu tun ist</text><circle cx="1375" cy="340" r="4" fill="#d97706"/><text x="1388" y="345" class="body">RFID-Tag an den RC522 halten.</text><circle cx="1375" cy="386" r="4" fill="#d97706"/><text x="1388" y="391" class="body">UID im ESPHome-Log prüfen.</text><circle cx="1375" cy="432" r="4" fill="#d97706"/><text x="1388" y="437" class="body">In Home Assistant unter „Tags“ den Tag sehen.</text><circle cx="1375" cy="478" r="4" fill="#d97706"/><text x="1388" y="483" class="body">Tag für Automationen oder Zutrittslogik verwenden.</text><rect x="1364" y="595" width="342" height="100" rx="16" fill="#f8fafc" stroke="#cbd5e1"/><text x="1382" y="627" class="label">Hinweis</text><text x="1382" y="660" class="small">Tipp: Entity-IDs unter „Zustände“ prüfen.</text><rect x="50" y="780" width="1700" height="135" rx="20" fill="#eff6ff" stroke="#bfdbfe"/><text x="75" y="822" class="h2">Wichtige Reihenfolge</text><text x="90" y="860" class="body">• 1. Erst Hardware korrekt aufbauen</text><text x="90" y="880" class="body">• 2. Dann ESPHome flashen und Gerät online bringen</text><text x="90" y="900" class="body">• 3. Danach HACS / Dashboard einrichten</text><text x="90" y="920" class="body">• 4. Erst zuletzt Entity-IDs und Tags final prüfen</text></svg>
