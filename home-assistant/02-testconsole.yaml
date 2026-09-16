@@ -1,0 +1,116 @@
+# Adjust the ESPHome action names if your Home Assistant instance generated another device prefix.
+type: grid
+title: RFID Testkonsole
+columns: 2
+square: false
+cards:
+  - type: custom:button-card
+    name: Zugriff erlaubt
+    icon: mdi:shield-check
+    tap_action:
+      action: perform-action
+      perform_action: esphome.rfid_rc522_rfidreader_tag_ok
+    styles:
+      card:
+        - height: 135px
+        - border-radius: 20px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+        - background: linear-gradient(135deg, rgba(0,200,83,0.20), rgba(0,0,0,0.02))
+      icon:
+        - width: 62px
+        - color: "#00c853"
+        - animation: pulse 1.8s infinite
+      name:
+        - font-size: 16px
+        - font-weight: 800
+    extra_styles: |
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.10); }
+        100% { transform: scale(1); }
+      }
+
+  - type: custom:button-card
+    name: Zugriff verweigert
+    icon: mdi:shield-alert
+    tap_action:
+      action: perform-action
+      perform_action: esphome.rfid_rc522_rfidreader_tag_ko
+    styles:
+      card:
+        - height: 135px
+        - border-radius: 20px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+        - background: linear-gradient(135deg, rgba(255,23,68,0.18), rgba(0,0,0,0.02))
+      icon:
+        - width: 62px
+        - color: "#ff1744"
+        - animation: shake 1.6s infinite
+      name:
+        - font-size: 16px
+        - font-weight: 800
+    extra_styles: |
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(-2px); }
+        40% { transform: translateX(2px); }
+        60% { transform: translateX(-2px); }
+        80% { transform: translateX(2px); }
+        100% { transform: translateX(0); }
+      }
+
+  - type: custom:button-card
+    name: Erfolg Melodie
+    icon: mdi:music-circle
+    tap_action:
+      action: perform-action
+      perform_action: esphome.rfid_rc522_play_rtttl
+      data:
+        song_str: "success:d=24,o=5,b=100:c,g,b"
+    styles:
+      card:
+        - height: 135px
+        - border-radius: 20px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+        - background: linear-gradient(135deg, rgba(33,150,243,0.20), rgba(0,0,0,0.02))
+      icon:
+        - width: 62px
+        - color: "#2196f3"
+        - animation: pulse 1.8s infinite
+      name:
+        - font-size: 16px
+        - font-weight: 800
+    extra_styles: |
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.10); }
+        100% { transform: scale(1); }
+      }
+
+  - type: custom:button-card
+    name: Alarm Ton
+    icon: mdi:alarm-light
+    tap_action:
+      action: perform-action
+      perform_action: esphome.rfid_rc522_play_rtttl
+      data:
+        song_str: "alarm:d=8,o=5,b=160:c6,c6,c6,c6"
+    styles:
+      card:
+        - height: 135px
+        - border-radius: 20px
+        - box-shadow: 0px 4px 14px rgba(0,0,0,0.14)
+        - background: linear-gradient(135deg, rgba(255,152,0,0.24), rgba(0,0,0,0.02))
+      icon:
+        - width: 62px
+        - color: "#ff9800"
+        - animation: alarmflash 1s infinite
+      name:
+        - font-size: 16px
+        - font-weight: 800
+    extra_styles: |
+      @keyframes alarmflash {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.16); opacity: 0.55; }
+        100% { transform: scale(1); opacity: 1; }
+      }
