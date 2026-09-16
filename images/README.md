@@ -1,9 +1,10 @@
 # Images
 
-Screenshots, wiring diagrams and hardware photos can be stored here.
+This folder contains the documentation graphics used by the project.
 
-Recommended file names:
+- `dashboard-hero.svg` – stylized dashboard/project preview
+- `wiring-diagram.svg` – ESP32-C3 + RC522 + buzzer + LED wiring diagram
+- `hardware-overview.svg` – required hardware overview
+- `installation-flow.svg` – installation workflow in four steps
 
-- `dashboard.png`
-- `wiring.png`
-- `hardware.jpg`
+The SVG format keeps the graphics sharp on desktop, tablet and mobile while remaining easy to version in Git.

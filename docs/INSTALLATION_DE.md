@@ -1,5 +1,7 @@
 # Installation – Deutsch
 
+![Installation in 4 Schritten](../images/installation-flow.svg)
+
 ## Voraussetzungen
 
 - Home Assistant
@@ -9,8 +11,18 @@
 - optional **card-mod**
 - ESP32-C3
 - RC522
+- passiver Buzzer
+- optional LED + 220–330 Ω Widerstand
 
-## 1. ESPHome konfigurieren
+## 1. Hardware verdrahten
+
+Verdrahte zuerst RC522, Buzzer und LED gemäß:
+
+![Verdrahtungsplan](../images/wiring-diagram.svg)
+
+Die vollständige Pin-Tabelle steht zusätzlich in [WIRING.md](WIRING.md).
+
+## 2. ESPHome konfigurieren
 
 `esphome/rfid-rc522.yaml` in ESPHome übernehmen.
 
@@ -26,11 +38,11 @@ rfid_fallback_password: "DEIN_FALLBACK_PASSWORT"
 
 Keine echten Zugangsdaten in GitHub speichern.
 
-## 2. ESP flashen
+## 3. ESP flashen
 
 ESPHome-Konfiguration validieren und anschließend über USB oder OTA installieren.
 
-## 3. Home Assistant Integration
+## 4. Home Assistant Integration
 
 Nach dem Start sollte Home Assistant das ESPHome-Gerät erkennen. Falls nicht:
 
@@ -38,7 +50,7 @@ Nach dem Start sollte Home Assistant das ESPHome-Gerät erkennen. Falls nicht:
 
 Danach die ESPHome-Integration des Geräts öffnen, **Konfigurieren** wählen und **„Home-Assistant-Aktionen erlauben“** aktivieren. Das ist für `homeassistant.tag_scanned` erforderlich.
 
-## 4. Entity-IDs prüfen
+## 5. Entity-IDs prüfen
 
 Unter:
 
@@ -48,7 +60,7 @@ nach `rfid` suchen.
 
 Die Entity-IDs können von den Beispielen im Repository abweichen. Passe dann die drei Dashboard-Dateien an.
 
-## 5. HACS
+## 6. HACS
 
 Über HACS → Frontend installieren:
 
@@ -57,7 +69,7 @@ Die Entity-IDs können von den Beispielen im Repository abweichen. Passe dann di
 
 Danach Browser/App vollständig neu laden.
 
-## 6. Dashboard
+## 7. Dashboard
 
 Im Dashboard drei Abschnitte nebeneinander anlegen:
 
@@ -71,7 +83,11 @@ Je Abschnitt eine manuelle YAML-Karte einfügen und den Inhalt der entsprechende
 - `home-assistant/02-testconsole.yaml`
 - `home-assistant/03-control.yaml`
 
-## 7. RFID testen
+Beispielansicht:
+
+![RFID Dashboard](../images/dashboard-hero.svg)
+
+## 8. RFID testen
 
 Tag an den RC522 halten. Im ESPHome-Log sollte die UID erscheinen und Home Assistant erhält ein Tag-Ereignis.
 

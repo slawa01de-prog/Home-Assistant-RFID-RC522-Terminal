@@ -4,7 +4,19 @@ Ein kompaktes RFID-Zugangsterminal auf Basis eines **ESP32-C3**, **MFRC522/RC522
 
 Das Projekt stellt RFID-Tags als Home-Assistant-Tag-Ereignisse bereit und bietet zusätzlich Buzzer-, LED- und Testfunktionen. Für das Dashboard gibt es eine tabletfreundliche Oberfläche mit animierter Scan-Anzeige und separaten Bereichen für Terminal, Testkonsole und Steuerung.
 
+[English version](README_EN.md)
+
+![RFID Dashboard Hero](images/dashboard-hero.svg)
+
 > **Hinweis:** API-Schlüssel, OTA-Passwörter und WLAN-Zugangsdaten gehören ausschließlich in `secrets.yaml` und niemals in ein öffentliches Repository.
+
+## Projekt auf einen Blick
+
+![Benötigte Hardware](images/hardware-overview.svg)
+
+![Verdrahtungsplan](images/wiring-diagram.svg)
+
+![Installation in 4 Schritten](images/installation-flow.svg)
 
 ## Funktionen
 
@@ -23,8 +35,10 @@ Das Projekt stellt RFID-Tags als Home-Assistant-Tag-Ereignisse bereit und bietet
 - ESP32-C3 DevKitM-1 oder kompatibles Board
 - RC522 RFID-Modul
 - passiver Piezo-Buzzer
-- optionale LED mit passendem Vorwiderstand
+- optionale LED mit 220–330-Ω-Vorwiderstand
 - Jumper-Kabel
+- USB-Kabel
+- RFID-Tag oder RFID-Karte zum Testen
 
 ## Verdrahtung
 
@@ -42,24 +56,29 @@ Zusätzlich:
 
 | Funktion | ESP32-C3 |
 |---|---|
-| Buzzer | GPIO8 |
-| Status-LED | GPIO2 |
+| Buzzer + | GPIO8 |
+| Buzzer − | GND |
+| LED Anode | GPIO2 über 220–330 Ω |
+| LED Kathode | GND |
 
-**RC522 nur mit 3,3 V betreiben.**
+**RC522 nur mit 3,3 V betreiben.** Eine 5-V-Versorgung kann das Modul beschädigen.
+
+Ausführliche Verdrahtung: [docs/WIRING.md](docs/WIRING.md)
 
 ## Installation
 
 1. ESPHome in Home Assistant installieren bzw. verwenden.
 2. `esphome/rfid-rc522.yaml` in ESPHome übernehmen.
 3. Werte aus `esphome/secrets.example.yaml` in deine eigene `secrets.yaml` übertragen.
-4. Firmware auf den ESP32-C3 installieren.
-5. Das ESPHome-Gerät in Home Assistant hinzufügen.
-6. In der ESPHome-Integration für das Gerät **„Home-Assistant-Aktionen erlauben“** aktivieren, damit `homeassistant.tag_scanned` funktionieren kann.
-7. Über HACS die **Button Card** installieren.
-8. Optional **card-mod** installieren.
-9. Browser/App vollständig neu laden.
-10. Die drei Dashboard-Karten aus `home-assistant/` in drei Dashboard-Abschnitte einfügen.
-11. Falls deine Entity-IDs abweichen, diese in den Karten anpassen.
+4. Hardware gemäß Verdrahtungsplan anschließen.
+5. Firmware auf den ESP32-C3 installieren.
+6. Das ESPHome-Gerät in Home Assistant hinzufügen.
+7. In der ESPHome-Integration für das Gerät **„Home-Assistant-Aktionen erlauben“** aktivieren, damit `homeassistant.tag_scanned` funktionieren kann.
+8. Über HACS die **Button Card** installieren.
+9. Optional **card-mod** installieren.
+10. Browser/App vollständig neu laden.
+11. Die drei Dashboard-Karten aus `home-assistant/` in drei Dashboard-Abschnitte einfügen.
+12. Falls deine Entity-IDs abweichen, diese in den Karten anpassen.
 
 Ausführlicher: [docs/INSTALLATION_DE.md](docs/INSTALLATION_DE.md)
 
@@ -71,7 +90,7 @@ Empfohlene Tablet-Anordnung:
 ┌────────────────────────┐ ┌────────────────────────┐ ┌──────────────────────┐
 │ RFID ACCESS TERMINAL   │ │ RFID Testkonsole       │ │ RFID Steuerung       │
 │ ● SYSTEM ONLINE        │ │ ✓ erlaubt   ! gesperrt │ │ Verbindung Firmware  │
-│                        │ │ ♪ Erfolg    🚨 Alarm    │ │ Buzzer      LED      │
+│                        │ │ ♪ Erfolg    Alarm       │ │ Buzzer      LED      │
 │    READY TO SCAN       │ │                        │ │                      │
 │   < Scan-Animation >   │ │                        │ │                      │
 └────────────────────────┘ └────────────────────────┘ └──────────────────────┘
@@ -127,6 +146,10 @@ Home-Assistant-RFID-RC522-Terminal/
 │   ├── WIRING.md
 │   └── HACS.md
 └── images/
+    ├── dashboard-hero.svg
+    ├── hardware-overview.svg
+    ├── wiring-diagram.svg
+    ├── installation-flow.svg
     └── README.md
 ```
 

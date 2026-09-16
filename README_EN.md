@@ -4,7 +4,19 @@ A compact RFID access terminal based on an **ESP32-C3**, **MFRC522/RC522** and *
 
 The project forwards RFID tags to Home Assistant as tag events and provides buzzer, LED and test functions. The included tablet dashboard uses an animated scan panel and separate sections for terminal status, test actions and controls.
 
+[Deutsche Version](README.md)
+
+![RFID Dashboard Hero](images/dashboard-hero.svg)
+
 > **Security:** Keep API keys, OTA passwords and Wi-Fi credentials in `secrets.yaml`. Never commit real credentials to a public repository.
+
+## Project overview
+
+![Required hardware](images/hardware-overview.svg)
+
+![Wiring diagram](images/wiring-diagram.svg)
+
+![Installation flow](images/installation-flow.svg)
 
 ## Features
 
@@ -23,8 +35,10 @@ The project forwards RFID tags to Home Assistant as tag events and provides buzz
 - ESP32-C3 DevKitM-1 or compatible board
 - RC522 RFID module
 - passive piezo buzzer
-- optional LED with suitable resistor
+- optional LED with 220–330 Ω resistor
 - jumper wires
+- USB cable
+- RFID tag/card for testing
 
 ## Wiring
 
@@ -42,23 +56,28 @@ Additional outputs:
 
 | Function | ESP32-C3 |
 |---|---|
-| Buzzer | GPIO8 |
-| Status LED | GPIO2 |
+| Buzzer + | GPIO8 |
+| Buzzer − | GND |
+| LED anode | GPIO2 via 220–330 Ω |
+| LED cathode | GND |
 
-**Power the RC522 from 3.3 V only.**
+**Power the RC522 from 3.3 V only.** A 5 V supply can damage the reader.
+
+See [docs/WIRING.md](docs/WIRING.md) for the full wiring guide.
 
 ## Quick start
 
 1. Add `esphome/rfid-rc522.yaml` to ESPHome.
 2. Copy the required values from `esphome/secrets.example.yaml` into your own `secrets.yaml`.
-3. Flash the ESP32-C3.
-4. Add the ESPHome device to Home Assistant.
-5. Enable **Allow the device to perform Home Assistant actions** in the ESPHome integration so `homeassistant.tag_scanned` can work.
-6. Install **Button Card** through HACS.
-7. Optionally install **card-mod**.
-8. Reload the Home Assistant frontend.
-9. Add the three YAML cards from `home-assistant/` to three dashboard sections.
-10. Adjust entity IDs if Home Assistant generated different names.
+3. Wire the hardware according to the diagram.
+4. Flash the ESP32-C3.
+5. Add the ESPHome device to Home Assistant.
+6. Enable **Allow the device to perform Home Assistant actions** in the ESPHome integration so `homeassistant.tag_scanned` can work.
+7. Install **Button Card** through HACS.
+8. Optionally install **card-mod**.
+9. Reload the Home Assistant frontend.
+10. Add the three YAML cards from `home-assistant/` to three dashboard sections.
+11. Adjust entity IDs if Home Assistant generated different names.
 
 See [docs/INSTALLATION_EN.md](docs/INSTALLATION_EN.md) for details.
 

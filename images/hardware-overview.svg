@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fbff"/><stop offset="1" stop-color="#e9f3fb"/></linearGradient><style>.t{font-family:Arial,Helvetica,sans-serif}.h{font-size:50px;font-weight:800}.m{font-size:27px;font-weight:700}.s{font-size:20px}.card{fill:#fff;stroke:#c8d8e5;stroke-width:2}</style></defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <text x="800" y="80" text-anchor="middle" class="t h" fill="#102c43">Benötigte Hardware</text>
+  <text x="800" y="125" text-anchor="middle" class="t m" fill="#597387">Home Assistant RFID RC522 Terminal</text>
+
+  <!-- cards -->
+  <g>
+    <rect x="85" y="180" width="330" height="330" rx="25" class="card"/><rect x="450" y="180" width="330" height="330" rx="25" class="card"/><rect x="815" y="180" width="330" height="330" rx="25" class="card"/><rect x="1180" y="180" width="330" height="330" rx="25" class="card"/>
+    <rect x="170" y="560" width="360" height="280" rx="25" class="card"/><rect x="620" y="560" width="360" height="280" rx="25" class="card"/><rect x="1070" y="560" width="360" height="280" rx="25" class="card"/>
+  </g>
+
+  <!-- ESP32 -->
+  <rect x="175" y="225" width="150" height="180" rx="18" fill="#242a31"/><rect x="204" y="250" width="92" height="88" rx="10" fill="#cbd1d5"/><text x="250" y="282" text-anchor="middle" class="t s" fill="#333">ESP32-C3</text><text x="250" y="309" text-anchor="middle" class="t s" fill="#333">DevKitM-1</text><rect x="220" y="380" width="60" height="22" rx="5" fill="#9aa7b1"/>
+  <text x="250" y="450" text-anchor="middle" class="t m" fill="#102c43">ESP32-C3 DevKitM-1</text><text x="250" y="482" text-anchor="middle" class="t s" fill="#5b7183">Wi-Fi Mikrocontroller</text>
+
+  <!-- RC522 -->
+  <rect x="540" y="225" width="150" height="180" rx="12" fill="#0b6da9"/><g fill="none" stroke="#dff5ff" stroke-width="5"><path d="M565 310 q50-65 100 0 q-50 65-100 0"/><path d="M580 310 q35-45 70 0 q-35 45-70 0"/><path d="M596 310 q20-25 40 0 q-20 25-40 0"/></g><text x="615" y="382" text-anchor="middle" class="t s" fill="#fff">RFID-RC522</text>
+  <text x="615" y="450" text-anchor="middle" class="t m" fill="#102c43">RC522 RFID Modul</text><text x="615" y="482" text-anchor="middle" class="t s" fill="#5b7183">13,56 MHz Reader</text>
+
+  <!-- Buzzer -->
+  <circle cx="980" cy="310" r="70" fill="#15191d"/><circle cx="980" cy="292" r="16" fill="#333"/><line x1="950" y1="378" x2="950" y2="410" stroke="#666" stroke-width="7"/><line x1="1010" y1="378" x2="1010" y2="410" stroke="#666" stroke-width="7"/>
+  <text x="980" y="450" text-anchor="middle" class="t m" fill="#102c43">Passiver Buzzer</text><text x="980" y="482" text-anchor="middle" class="t s" fill="#5b7183">RTTTL / akustische Rückmeldung</text>
+
+  <!-- LED -->
+  <circle cx="1290" cy="295" r="48" fill="#ef4444" stroke="#b91c1c" stroke-width="4"/><line x1="1275" y1="340" x2="1275" y2="400" stroke="#777" stroke-width="5"/><line x1="1305" y1="340" x2="1305" y2="400" stroke="#777" stroke-width="5"/><rect x="1360" y="275" width="90" height="30" rx="10" fill="#d9b176" stroke="#8b6635" stroke-width="3"/><g stroke="#4b3520" stroke-width="5"><line x1="1380" y1="277" x2="1380" y2="303"/><line x1="1400" y1="277" x2="1400" y2="303"/><line x1="1420" y1="277" x2="1420" y2="303"/></g>
+  <text x="1345" y="450" text-anchor="middle" class="t m" fill="#102c43">LED + Widerstand</text><text x="1345" y="482" text-anchor="middle" class="t s" fill="#5b7183">220–330 Ω empfohlen</text>
+
+  <!-- jumper -->
+  <g stroke-width="8" fill="none"><path d="M220 650 C280 600 360 730 450 650" stroke="#e53935"/><path d="M220 675 C290 625 365 755 450 675" stroke="#f9a825"/><path d="M220 700 C300 650 370 780 450 700" stroke="#1e88e5"/><path d="M220 725 C310 675 375 805 450 725" stroke="#43a047"/></g><g fill="#222"><rect x="195" y="638" width="42" height="110" rx="6"/><rect x="438" y="638" width="42" height="110" rx="6"/></g>
+  <text x="350" y="790" text-anchor="middle" class="t m" fill="#102c43">Jumper-Kabel</text><text x="350" y="820" text-anchor="middle" class="t s" fill="#5b7183">für SPI und Versorgung</text>
+
+  <!-- USB -->
+  <path d="M690 690 C740 620 860 620 910 690 C860 760 740 760 690 690" fill="none" stroke="#252a2f" stroke-width="18"/><rect x="650" y="667" width="70" height="45" rx="7" fill="#737f87"/><rect x="900" y="674" width="58" height="32" rx="10" fill="#737f87"/>
+  <text x="800" y="790" text-anchor="middle" class="t m" fill="#102c43">USB-Kabel</text><text x="800" y="820" text-anchor="middle" class="t s" fill="#5b7183">Flashen und Stromversorgung</text>
+
+  <!-- tags -->
+  <circle cx="1165" cy="680" r="58" fill="#1976d2"/><circle cx="1165" cy="680" r="23" fill="none" stroke="#d7ecff" stroke-width="5"/><rect x="1215" y="625" width="150" height="95" rx="12" fill="#fff" stroke="#b6c7d5" stroke-width="3"/><text x="1290" y="682" text-anchor="middle" class="t m" fill="#8796a2">RFID</text>
+  <text x="1250" y="790" text-anchor="middle" class="t m" fill="#102c43">RFID Tag / Karte</text><text x="1250" y="820" text-anchor="middle" class="t s" fill="#5b7183">zum Testen und täglichen Gebrauch</text>
+
+  <rect x="110" y="885" width="1380" height="75" rx="22" fill="#dcedf8"/>
+  <text x="250" y="932" class="t m" fill="#102c43">✓ ESPHome</text><text x="565" y="932" class="t m" fill="#102c43">✓ Home Assistant</text><text x="945" y="932" class="t m" fill="#102c43">✓ Tablet Dashboard</text><text x="1260" y="932" class="t m" fill="#102c43">✓ Buzzer &amp; LED</text>
+</svg>

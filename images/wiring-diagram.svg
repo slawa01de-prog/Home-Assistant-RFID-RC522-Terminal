@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <defs><style>.t{font-family:Arial,Helvetica,sans-serif}.h{font-size:42px;font-weight:800}.m{font-size:26px;font-weight:700}.s{font-size:21px}.pin{font-size:18px;font-weight:700}</style></defs>
+  <rect width="1600" height="1100" fill="#f7fafc"/>
+  <text x="800" y="70" text-anchor="middle" class="t h" fill="#0f2940">Verdrahtungsplan – Home Assistant RFID RC522 Terminal</text>
+  <text x="800" y="110" text-anchor="middle" class="t m" fill="#5b7183">ESP32-C3 + RC522 + passiver Buzzer + LED</text>
+
+  <!-- ESP32 board -->
+  <rect x="90" y="190" width="360" height="640" rx="28" fill="#1e2329" stroke="#0c1115" stroke-width="4"/>
+  <rect x="168" y="235" width="205" height="190" rx="12" fill="#c9cfd3"/>
+  <text x="270" y="300" text-anchor="middle" class="t m" fill="#333">ESPRESSIF</text><text x="270" y="340" text-anchor="middle" class="t m" fill="#333">ESP32-C3</text><text x="270" y="380" text-anchor="middle" class="t s" fill="#333">DevKitM-1</text>
+  <text x="270" y="870" text-anchor="middle" class="t m" fill="#0f2940">ESP32-C3 DevKitM-1</text>
+  <g class="t pin" fill="#fff">
+    <text x="110" y="485">3V3</text><text x="110" y="530">GND</text><text x="110" y="575">GPIO9</text><text x="110" y="620">GPIO6</text><text x="110" y="665">GPIO5</text><text x="110" y="710">GPIO7</text><text x="110" y="755">GPIO10</text><text x="110" y="800">GPIO8</text>
+    <text x="345" y="485">GPIO2</text><text x="345" y="530">GND</text>
+  </g>
+  <g fill="#dfe7ec">
+    <circle cx="150" cy="478" r="8"/><circle cx="150" cy="523" r="8"/><circle cx="150" cy="568" r="8"/><circle cx="150" cy="613" r="8"/><circle cx="150" cy="658" r="8"/><circle cx="150" cy="703" r="8"/><circle cx="150" cy="748" r="8"/><circle cx="150" cy="793" r="8"/>
+    <circle cx="330" cy="478" r="8"/><circle cx="330" cy="523" r="8"/>
+  </g>
+
+  <!-- RC522 -->
+  <rect x="780" y="230" width="360" height="500" rx="20" fill="#0b69a8" stroke="#07507f" stroke-width="4"/>
+  <text x="960" y="770" text-anchor="middle" class="t m" fill="#0f2940">RC522 RFID Modul</text>
+  <g class="t pin" fill="#fff" text-anchor="middle">
+    <text x="810" y="270">SDA</text><text x="858" y="270">SCK</text><text x="908" y="270">MOSI</text><text x="963" y="270">MISO</text><text x="1015" y="270">RST</text><text x="1070" y="270">3.3V</text><text x="1115" y="270">GND</text>
+  </g>
+  <g fill="#e9f3f8"><circle cx="810" cy="290" r="7"/><circle cx="858" cy="290" r="7"/><circle cx="908" cy="290" r="7"/><circle cx="963" cy="290" r="7"/><circle cx="1015" cy="290" r="7"/><circle cx="1070" cy="290" r="7"/><circle cx="1115" cy="290" r="7"/></g>
+  <g fill="none" stroke="#d8f0ff" stroke-width="6"><path d="M845 420 q115-110 230 0 q-115 110-230 0"/><path d="M870 420 q90-80 180 0 q-90 80-180 0"/><path d="M895 420 q65-50 130 0 q-65 50-130 0"/></g>
+
+  <!-- Wires -->
+  <path d="M150 478 H650 V300 H1070" fill="none" stroke="#e53935" stroke-width="8"/><text x="535" y="287" class="t pin" fill="#e53935">3.3 V</text>
+  <path d="M150 523 H625 V330 H1115 V290" fill="none" stroke="#222" stroke-width="8"/><text x="515" y="348" class="t pin" fill="#222">GND</text>
+  <path d="M150 568 H595 V360 H858 V290" fill="none" stroke="#2e7d32" stroke-width="8"/><text x="480" y="377" class="t pin" fill="#2e7d32">GPIO9 → SCK</text>
+  <path d="M150 613 H570 V390 H908 V290" fill="none" stroke="#1565c0" stroke-width="8"/><text x="455" y="407" class="t pin" fill="#1565c0">GPIO6 → MOSI</text>
+  <path d="M150 658 H545 V420 H963 V290" fill="none" stroke="#7b1fa2" stroke-width="8"/><text x="430" y="437" class="t pin" fill="#7b1fa2">GPIO5 → MISO</text>
+  <path d="M150 703 H520 V450 H810 V290" fill="none" stroke="#f9a825" stroke-width="8"/><text x="405" y="467" class="t pin" fill="#aa7600">GPIO7 → SDA/SS</text>
+  <path d="M150 748 H495 V480 H1015 V290" fill="none" stroke="#ef6c00" stroke-width="8"/><text x="380" y="497" class="t pin" fill="#ef6c00">GPIO10 → RST</text>
+
+  <!-- Buzzer -->
+  <circle cx="650" cy="885" r="82" fill="#111"/><circle cx="650" cy="860" r="18" fill="#333"/><text x="650" y="995" text-anchor="middle" class="t m" fill="#0f2940">Passiver Buzzer</text>
+  <path d="M150 793 H560 V885 H568" fill="none" stroke="#8d5a2b" stroke-width="8"/><text x="385" y="815" class="t pin" fill="#8d5a2b">GPIO8 → Buzzer +</text>
+  <path d="M650 967 V1025 H500" fill="none" stroke="#222" stroke-width="8"/><text x="510" y="1012" class="t pin" fill="#222">Buzzer − → GND</text>
+
+  <!-- LED -->
+  <path d="M330 478 H430 V925 H1130" fill="none" stroke="#ec407a" stroke-width="8"/>
+  <rect x="1160" y="900" width="95" height="30" rx="10" fill="#d8b07a" stroke="#7a5735" stroke-width="3"/>
+  <circle cx="1325" cy="915" r="36" fill="#ef3b3b" stroke="#a51e1e" stroke-width="4"/>
+  <line x1="1255" y1="915" x2="1289" y2="915" stroke="#ec407a" stroke-width="8"/><line x1="1361" y1="915" x2="1420" y2="915" stroke="#222" stroke-width="8"/>
+  <text x="1290" y="995" text-anchor="middle" class="t m" fill="#0f2940">LED + 220–330 Ω</text>
+  <text x="660" y="913" class="t pin" fill="#c2185b">GPIO2 → Widerstand → LED Anode</text>
+  <text x="1378" y="895" class="t pin" fill="#222">Kathode → GND</text>
+
+  <!-- table -->
+  <rect x="1190" y="200" width="345" height="550" rx="16" fill="#fff" stroke="#b8c8d4" stroke-width="3"/>
+  <text x="1362" y="248" text-anchor="middle" class="t m" fill="#0f2940">Pin-Tabelle</text>
+  <g class="t s" fill="#233d52">
+    <text x="1225" y="300">RC522 SCK</text><text x="1400" y="300">GPIO9</text>
+    <text x="1225" y="345">RC522 MISO</text><text x="1400" y="345">GPIO5</text>
+    <text x="1225" y="390">RC522 MOSI</text><text x="1400" y="390">GPIO6</text>
+    <text x="1225" y="435">RC522 SDA/SS</text><text x="1400" y="435">GPIO7</text>
+    <text x="1225" y="480">RC522 RST</text><text x="1400" y="480">GPIO10</text>
+    <text x="1225" y="525">RC522 3.3V</text><text x="1400" y="525">3.3V</text>
+    <text x="1225" y="570">RC522 GND</text><text x="1400" y="570">GND</text>
+    <text x="1225" y="635">Buzzer +</text><text x="1400" y="635">GPIO8</text>
+    <text x="1225" y="680">LED Anode</text><text x="1400" y="680">GPIO2*</text>
+  </g>
+  <rect x="1180" y="795" width="355" height="170" rx="18" fill="#fff4d3" stroke="#f0a000" stroke-width="4"/>
+  <text x="1358" y="845" text-anchor="middle" class="t m" fill="#d84315">⚠ RC522 nur mit 3,3 V</text>
+  <text x="1358" y="885" text-anchor="middle" class="t s" fill="#654b00">5 V kann das RFID-Modul</text><text x="1358" y="915" text-anchor="middle" class="t s" fill="#654b00">dauerhaft beschädigen.</text><text x="1358" y="948" text-anchor="middle" class="t s" fill="#654b00">*LED immer mit Vorwiderstand.</text>
+</svg>
