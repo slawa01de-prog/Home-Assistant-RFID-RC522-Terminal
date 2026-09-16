@@ -1,6 +1,8 @@
 # Installation – Deutsch
 
-![Installation in 4 Schritten](../images/installation-flow.svg)
+## Übersicht
+
+![Installationsablauf](../images/installation-flow.svg)
 
 ## Voraussetzungen
 
@@ -11,16 +13,18 @@
 - optional **card-mod**
 - ESP32-C3
 - RC522
-- passiver Buzzer
-- optional LED + 220–330 Ω Widerstand
+- passiver Piezo-Buzzer
+- optional LED + Widerstand
 
 ## 1. Hardware verdrahten
 
-Verdrahte zuerst RC522, Buzzer und LED gemäß:
+Verdrahte ESP32-C3, RC522, Buzzer und LED gemäß [WIRING.md](WIRING.md).
 
-![Verdrahtungsplan](../images/wiring-diagram.svg)
+Wichtig:
 
-Die vollständige Pin-Tabelle steht zusätzlich in [WIRING.md](WIRING.md).
+- RC522 nur mit **3,3 V** betreiben
+- LED-Anode an **GPIO2 über 220 Ω**
+- Buzzer an **GPIO8** und **GND**
 
 ## 2. ESPHome konfigurieren
 
@@ -52,11 +56,7 @@ Danach die ESPHome-Integration des Geräts öffnen, **Konfigurieren** wählen un
 
 ## 5. Entity-IDs prüfen
 
-Unter:
-
-**Entwicklerwerkzeuge → Zustände**
-
-nach `rfid` suchen.
+Unter **Entwicklerwerkzeuge → Zustände** nach `rfid` suchen.
 
 Die Entity-IDs können von den Beispielen im Repository abweichen. Passe dann die drei Dashboard-Dateien an.
 
@@ -82,10 +82,6 @@ Je Abschnitt eine manuelle YAML-Karte einfügen und den Inhalt der entsprechende
 - `home-assistant/01-terminal.yaml`
 - `home-assistant/02-testconsole.yaml`
 - `home-assistant/03-control.yaml`
-
-Beispielansicht:
-
-![RFID Dashboard](../images/dashboard-hero.svg)
 
 ## 8. RFID testen
 
