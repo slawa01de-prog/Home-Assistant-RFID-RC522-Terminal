@@ -1,0 +1,131 @@
+substitutions:
+  device_name: rfid-rc522
+  friendly_name: RFID RC522
+
+esphome:
+  name: ${device_name}
+  friendly_name: ${friendly_name}
+  on_boot:
+    priority: -10
+    then:
+      - wait_until:
+          api.connected:
+      - logger.log: "API ist verbunden!"
+      - if:
+          condition:
+            switch.is_on: buzzer_enabled
+          then:
+            - rtttl.play: "success:d=24,o=5,b=100:c,g,b"
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: arduino
+
+logger:
+
+api:
+  encryption:
+    key: !secret rfid_api_key
+  actions:
+    - action: rfidreader_tag_ok
+      then:
+        - if:
+            condition:
+              switch.is_on: buzzer_enabled
+            then:
+              - rtttl.play: "ok:d=16,o=5,b=120:c6,e6,g6"
+
+    - action: rfidreader_tag_ko
+      then:
+        - if:
+            condition:
+              switch.is_on: buzzer_enabled
+            then:
+              - rtttl.play: "error:d=8,o=5,b=100:c,c,c"
+
+    - action: play_rtttl
+      variables:
+        song_str: string
+      then:
+        - if:
+            condition:
+              switch.is_on: buzzer_enabled
+            then:
+              - rtttl.play: !lambda "return song_str;"
+
+ota:
+  - platform: esphome
+    password: !secret rfid_ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  ap:
+    ssid: "RFID-RC522 Fallback"
+    password: !secret rfid_fallback_password
+
+captive_portal:
+
+spi:
+  clk_pin: GPIO9
+  miso_pin: GPIO5
+  mosi_pin: GPIO6
+
+rc522_spi:
+  cs_pin: GPIO7
+  reset_pin: GPIO10
+  on_tag:
+    then:
+      - logger.log:
+          format: "RFID Tag erkannt: %s"
+          args: ["x.c_str()"]
+
+      - homeassistant.tag_scanned: !lambda "return x;"
+
+      - if:
+          condition:
+            switch.is_on: buzzer_enabled
+          then:
+            - rtttl.play: "success:d=24,o=5,b=100:c,g,b"
+
+      - if:
+          condition:
+            switch.is_on: led_enabled
+          then:
+            - output.turn_on: status_led
+            - delay: 300ms
+            - output.turn_off: status_led
+
+output:
+  - platform: ledc
+    pin: GPIO8
+    frequency: 1000Hz
+    id: buzzer
+
+  - platform: gpio
+    pin: GPIO2
+    id: status_led
+
+rtttl:
+  output: buzzer
+
+switch:
+  - platform: template
+    name: "Buzzer EIN"
+    id: buzzer_enabled
+    icon: mdi:volume-high
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+
+  - platform: template
+    name: "LED EIN"
+    id: led_enabled
+    icon: mdi:alarm-light-outline
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+
+binary_sensor:
+  - platform: status
+    name: "Status"
