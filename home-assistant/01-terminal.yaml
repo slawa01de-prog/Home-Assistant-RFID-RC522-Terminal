@@ -1,0 +1,111 @@
+# Replace the entity below if Home Assistant generated a different entity_id.
+type: custom:button-card
+entity: binary_sensor.rfid_rc522_status
+name: RFID ACCESS TERMINAL
+icon: mdi:card-account-details-outline
+show_state: false
+show_label: true
+label: |
+  [[[
+    if (entity && entity.state === "on") {
+      return "🟢 SYSTEM ONLINE • READY TO SCAN";
+    }
+    return "🔴 SYSTEM OFFLINE • TERMINAL GETRENNT";
+  ]]]
+tap_action:
+  action: none
+styles:
+  card:
+    - height: 220px
+    - border-radius: 22px
+    - padding: 22px
+    - background: |
+        [[[
+          if (entity && entity.state === "on") {
+            return "linear-gradient(135deg, rgba(0,120,60,0.18), rgba(0,0,0,0.02))";
+          }
+          return "linear-gradient(135deg, rgba(160,0,0,0.18), rgba(0,0,0,0.02))";
+        ]]]
+    - box-shadow: 0px 6px 20px rgba(0,0,0,0.18)
+    - border: 1px solid rgba(120,120,120,0.25)
+  grid:
+    - grid-template-areas: '"i n" "i l" "scan scan"'
+    - grid-template-columns: 90px 1fr
+    - grid-template-rows: min-content min-content 1fr
+  icon:
+    - width: 70px
+    - color: |
+        [[[
+          if (entity && entity.state === "on") return "#00c853";
+          return "#ff1744";
+        ]]]
+    - animation: |
+        [[[
+          if (entity && entity.state === "on") return "pulse 1.5s infinite";
+          return "blink 1.2s infinite";
+        ]]]
+  name:
+    - justify-self: start
+    - font-size: 28px
+    - font-weight: 900
+    - letter-spacing: 1px
+  label:
+    - justify-self: start
+    - font-size: 16px
+    - font-weight: 700
+    - margin-top: 8px
+  custom_fields:
+    scan:
+      - align-self: end
+      - justify-self: stretch
+      - height: 70px
+      - margin-top: 22px
+custom_fields:
+  scan: |
+    [[[
+      return `
+      <div style="
+        position: relative;
+        height: 64px;
+        border-radius: 14px;
+        overflow: hidden;
+        background: rgba(80,80,80,0.12);
+        border: 1px solid rgba(120,120,120,0.25);
+      ">
+        <div style="
+          position:absolute;
+          left:0;
+          top:0;
+          height:100%;
+          width:35%;
+          background: linear-gradient(90deg, transparent, rgba(30,144,255,0.55), transparent);
+          animation: scanline 2.2s linear infinite;
+        "></div>
+        <div style="
+          position:absolute;
+          width:100%;
+          text-align:center;
+          top:20px;
+          font-size:18px;
+          font-weight:800;
+          letter-spacing:2px;
+        ">
+          READY TO SCAN
+        </div>
+      </div>`;
+    ]]]
+extra_styles: |
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+  }
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.35; }
+    100% { opacity: 1; }
+  }
+  @keyframes scanline {
+    0% { left: -40%; }
+    100% { left: 105%; }
+  }
