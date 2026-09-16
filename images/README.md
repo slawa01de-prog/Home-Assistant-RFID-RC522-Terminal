@@ -1,10 +1,10 @@
 # Images
 
-This folder contains the documentation graphics used by the project.
+This folder contains the technical SVG graphics used in the documentation.
 
-- `dashboard-hero.svg` – stylized dashboard/project preview
-- `wiring-diagram.svg` – ESP32-C3 + RC522 + buzzer + LED wiring diagram
-- `hardware-overview.svg` – required hardware overview
-- `installation-flow.svg` – installation workflow in four steps
+- `dashboard-hero.svg` – project banner / README hero image
+- `wiring-diagram.svg` – exact wiring diagram for ESP32-C3 + RC522 + buzzer + LED
+- `hardware-overview.svg` – overview of the required hardware
+- `installation-flow.svg` – step-by-step installation overview
 
-The SVG format keeps the graphics sharp on desktop, tablet and mobile while remaining easy to version in Git.
+The SVG format keeps the diagrams sharp and easy to maintain.
