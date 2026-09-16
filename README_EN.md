@@ -6,17 +6,9 @@ The project forwards RFID tags to Home Assistant as tag events and provides buzz
 
 [Deutsche Version](README.md)
 
-![RFID Dashboard Hero](images/dashboard-hero.svg)
+![Project Banner](images/dashboard-hero.svg)
 
 > **Security:** Keep API keys, OTA passwords and Wi-Fi credentials in `secrets.yaml`. Never commit real credentials to a public repository.
-
-## Project overview
-
-![Required hardware](images/hardware-overview.svg)
-
-![Wiring diagram](images/wiring-diagram.svg)
-
-![Installation flow](images/installation-flow.svg)
 
 ## Features
 
@@ -30,38 +22,46 @@ The project forwards RFID tags to Home Assistant as tag events and provides buzz
 - animated tablet UI using `custom:button-card`
 - compact layout designed to avoid vertical scrolling
 
+## Example graphics
+
+### Wiring diagram
+
+![Wiring Diagram](images/wiring-diagram.svg)
+
+### Required hardware
+
+![Required Hardware](images/hardware-overview.svg)
+
+### Installation flow
+
+![Installation Flow](images/installation-flow.svg)
+
 ## Hardware
 
 - ESP32-C3 DevKitM-1 or compatible board
 - RC522 RFID module
 - passive piezo buzzer
-- optional LED with 220–330 Ω resistor
+- optional LED with a suitable resistor
 - jumper wires
-- USB cable
-- RFID tag/card for testing
+- RFID tag or RFID card
 
 ## Wiring
 
-| RC522 | ESP32-C3 |
+| Signal / module | ESP32-C3 |
 |---|---|
-| SCK | GPIO9 |
-| MISO | GPIO5 |
-| MOSI | GPIO6 |
-| SDA / SS | GPIO7 |
-| RST | GPIO10 |
-| 3.3 V | 3.3 V |
-| GND | GND |
-
-Additional outputs:
-
-| Function | ESP32-C3 |
-|---|---|
+| RC522 SDA / SS | GPIO7 |
+| RC522 SCK | GPIO9 |
+| RC522 MOSI | GPIO6 |
+| RC522 MISO | GPIO5 |
+| RC522 RST | GPIO10 |
+| RC522 3.3V | 3V3 |
+| RC522 GND | GND |
 | Buzzer + | GPIO8 |
-| Buzzer − | GND |
-| LED anode | GPIO2 via 220–330 Ω |
+| Buzzer - | GND |
+| LED anode | GPIO2 via 220 Ω |
 | LED cathode | GND |
 
-**Power the RC522 from 3.3 V only.** A 5 V supply can damage the reader.
+**Power the RC522 from 3.3 V only.**
 
 See [docs/WIRING.md](docs/WIRING.md) for the full wiring guide.
 
@@ -69,17 +69,79 @@ See [docs/WIRING.md](docs/WIRING.md) for the full wiring guide.
 
 1. Add `esphome/rfid-rc522.yaml` to ESPHome.
 2. Copy the required values from `esphome/secrets.example.yaml` into your own `secrets.yaml`.
-3. Wire the hardware according to the diagram.
-4. Flash the ESP32-C3.
-5. Add the ESPHome device to Home Assistant.
-6. Enable **Allow the device to perform Home Assistant actions** in the ESPHome integration so `homeassistant.tag_scanned` can work.
-7. Install **Button Card** through HACS.
-8. Optionally install **card-mod**.
-9. Reload the Home Assistant frontend.
-10. Add the three YAML cards from `home-assistant/` to three dashboard sections.
-11. Adjust entity IDs if Home Assistant generated different names.
+3. Flash the ESP32-C3.
+4. Add the ESPHome device to Home Assistant.
+5. Enable **Allow the device to perform Home Assistant actions** in the ESPHome integration so `homeassistant.tag_scanned` can work.
+6. Install **Button Card** through HACS.
+7. Optionally install **card-mod**.
+8. Reload the Home Assistant frontend.
+9. Add the three YAML cards from `home-assistant/` to three dashboard sections.
+10. Adjust entity IDs if Home Assistant generated different names.
 
 See [docs/INSTALLATION_EN.md](docs/INSTALLATION_EN.md) for details.
+
+## Dashboard layout
+
+Recommended tablet arrangement:
+
+```text
+┌────────────────────────┐ ┌────────────────────────┐ ┌──────────────────────┐
+│ RFID ACCESS TERMINAL   │ │ RFID Test Console      │ │ RFID Controls        │
+│ ● SYSTEM ONLINE        │ │ ✓ allowed   ! denied   │ │ Connection Firmware  │
+│                        │ │ ♪ Success   🚨 Alarm    │ │ Buzzer      LED      │
+│    READY TO SCAN       │ │                        │ │                      │
+│   < Scan Animation >   │ │                        │ │                      │
+└────────────────────────┘ └────────────────────────┘ └──────────────────────┘
+```
+
+## Home Assistant entities
+
+Exact entity IDs depend on your installation. After first startup, open **Developer Tools → States** and search for `rfid`, then adjust the dashboard YAML if needed.
+
+Typical entities are:
+
+```text
+binary_sensor.rfid_rc522_status
+switch.rfid_rc522_buzzer_ein
+switch.rfid_rc522_led_ein
+```
+
+## Home Assistant actions
+
+The ESPHome configuration exposes these actions:
+
+```text
+esphome.rfid_rc522_rfidreader_tag_ok
+esphome.rfid_rc522_rfidreader_tag_ko
+esphome.rfid_rc522_play_rtttl
+```
+
+## Repository structure
+
+```text
+Home-Assistant-RFID-RC522-Terminal/
+├── README.md
+├── README_EN.md
+├── LICENSE
+├── esphome/
+│   ├── rfid-rc522.yaml
+│   └── secrets.example.yaml
+├── home-assistant/
+│   ├── 01-terminal.yaml
+│   ├── 02-testconsole.yaml
+│   └── 03-control.yaml
+├── docs/
+│   ├── INSTALLATION_DE.md
+│   ├── INSTALLATION_EN.md
+│   ├── WIRING.md
+│   └── HACS.md
+└── images/
+    ├── README.md
+    ├── dashboard-hero.svg
+    ├── wiring-diagram.svg
+    ├── hardware-overview.svg
+    └── installation-flow.svg
+```
 
 ## Roadmap
 
